@@ -64,6 +64,7 @@ org/apache/beam/examples/complete/game/LeaderBoard$CalculateUserScores.class
 org/apache/beam/examples/common/ExampleBigQueryTableOptions$BigQueryTableFactory.class
 org/apache/beam/examples/DebuggingWordCount$FilterTextFn.class
 org/apache/beam/examples/complete/game/StatefulTeamScore.class
+org/apache/beam/examples/RecsDeliveredListing1$GetListingOptions.class
 org/apache/beam/examples/subprocess/configuration/SubProcessConfiguration.class
 org/apache/beam/examples/WindowedWordCount$AddTimestampFn.class
 org/apache/beam/examples/complete/game/GameStats$Options.class

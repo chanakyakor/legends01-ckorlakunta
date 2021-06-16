@@ -156,7 +156,8 @@ return array[array.length - 1];
         GetListingOptions options =
                 PipelineOptionsFactory.fromArgs(args).withValidation().as(GetListingOptions.class);
 
-        runJob(options);}
+        runJob(options);
+    }
 }
 
 

@@ -27,6 +27,7 @@ org/apache/beam/examples/complete/game/injector/InjectorUtils.class
 org/apache/beam/examples/subprocess/utils/CallingSubProcessUtils.class
 org/apache/beam/examples/WindowedWordCount$DefaultToCurrentSystemTime.class
 org/apache/beam/examples/complete/game/UserScore.class
+org/apache/beam/examples/RecsDeliveredListings$makeNewRow1.class
 org/apache/beam/examples/complete/game/utils/WriteToText$PerWindowFiles.class
 org/apache/beam/examples/subprocess/kernel/SubProcessCommandLineArgs.class
 org/apache/beam/examples/WordCount$WordCountOptions.class
@@ -35,6 +36,7 @@ org/apache/beam/examples/common/ExampleUtils.class
 org/apache/beam/examples/complete/game/LeaderBoard$Options.class
 org/apache/beam/examples/complete/game/utils/WriteToText.class
 org/apache/beam/examples/complete/game/utils/WriteToBigQuery$FieldFn.class
+org/apache/beam/examples/RecsDeliveredListings2$GetListingOptions.class
 org/apache/beam/examples/common/ExamplePubsubTopicOptions.class
 org/apache/beam/examples/complete/game/GameStats$CalculateSpammyUsers.class
 org/apache/beam/examples/complete/game/HourlyTeamScore$Options.class
@@ -47,6 +49,7 @@ org/apache/beam/examples/WindowedWordCount$DefaultToMinTimestampPlusOneHour.clas
 org/apache/beam/examples/subprocess/SubProcessPipelineOptions$SubProcessConfigurationFactory.class
 org/apache/beam/examples/subprocess/utils/FileUtils.class
 org/apache/beam/examples/WordCount$CountWords.class
+org/apache/beam/examples/RecsDeliveredListings$GetListingOptions.class
 org/apache/beam/examples/subprocess/SubProcessPipelineOptions.class
 org/apache/beam/examples/subprocess/kernel/SubProcessIOFiles.class
 org/apache/beam/examples/WindowedWordCount.class
@@ -70,6 +73,9 @@ org/apache/beam/examples/WindowedWordCount$AddTimestampFn.class
 org/apache/beam/examples/complete/game/GameStats$Options.class
 org/apache/beam/examples/complete/game/GameStats$CalculateSpammyUsers$1.class
 org/apache/beam/examples/complete/game/StatefulTeamScore$Options.class
+org/apache/beam/examples/RecsDeliveredListings$1.class
+org/apache/beam/examples/RecsDeliveredListings$makeNewRow.class
+org/apache/beam/examples/RecsDeliveredListings.class
 org/apache/beam/examples/complete/game/utils/WriteToBigQuery.class
 org/apache/beam/examples/complete/game/utils/GameConstants.class
 org/apache/beam/examples/complete/game/UserScore$GameActionInfo.class

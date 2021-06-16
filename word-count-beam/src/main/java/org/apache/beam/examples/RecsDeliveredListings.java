@@ -19,8 +19,6 @@ import org.apache.beam.sdk.values.KV;
 import org.apache.beam.sdk.coders.AvroCoder;
 import org.apache.hadoop.fs.Path;
 
-
-
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -29,8 +27,7 @@ import java.util.stream.Collectors;
 
 import org.apache.beam.sdk.io.TextIO;
 
-
-public class RecsDeliveredListings2 {
+public class RecsDeliveredListings {
 
     public static Long dateRange(String dateStr) throws ParseException {
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
@@ -93,6 +90,12 @@ public class RecsDeliveredListings2 {
         table2.apply(TextIO.write().to(options.getOutput()));
 
         p.run().waitUntilFinish();
+
+        PCollection<String> table1 = recsDeliveredVisits.apply(
+                ParDo.of(new makeNewRow1()));
+        table1.apply(TextIO.write().to("gs://hadoop-sandbox-dev-default-sodf9k/ckorlakunta/recs_delivered_listings/output/recsys_delivered_listings/"));
+
+        p.run().waitUntilFinish();
     }
 
     static class makeNewRow extends DoFn<GenericRecord, String> {
@@ -139,6 +142,26 @@ public class RecsDeliveredListings2 {
             }
         }
     }
+
+    static class makeNewRow1 extends DoFn<GenericRecord, String> {
+        @ProcessElement
+        public void processElement(@Element GenericRecord Row01, OutputReceiver<String> out) throws ParseException {
+
+            StringBuilder output = new StringBuilder("");
+            String visit_id = Row01.get("visit_id").toString();
+            String module_placement = Row01.get("module_placement").toString();
+            int run_date = dateRange("2021-06-18 00:00:00.000").intValue() / 1000;
+            //"run_date,visit_id,1,module_placement"
+            output.append(run_date);
+            output.append(",");
+            output.append(visit_id);
+            output.append(",");
+            output.append("1,");
+            output.append(module_placement);
+            out.output(output.toString());
+        }
+    }
+
     public static Schema convert(Path parquetPath) throws IOException {
 
         Configuration cfg = new Configuration();
@@ -159,7 +182,6 @@ public class RecsDeliveredListings2 {
         return avroSchema;
     }
 
-
     public static void main(String[] args) throws IOException {
         GetListingOptions options =
                 PipelineOptionsFactory.fromArgs(args).withValidation().as(GetListingOptions.class);
@@ -167,8 +189,3 @@ public class RecsDeliveredListings2 {
         runJob(options);
     }
 }
-
-
-
-
-
